@@ -907,7 +907,7 @@ int LIBWDI_API wdi_create_list(struct wdi_device_info** list,
 	PF_INIT_OR_OUT(CM_Get_Device_IDA, Cfgmgr32);
 
 	// List all connected USB devices
-	dev_info = SetupDiGetClassDevsA(NULL, "USB", NULL, DIGCF_PRESENT|DIGCF_ALLCLASSES);
+	dev_info = SetupDiGetClassDevs(NULL, "USB", NULL, DIGCF_PRESENT|DIGCF_ALLCLASSES);
 	if (dev_info == INVALID_HANDLE_VALUE) {
 		r = WDI_ERROR_NO_DEVICE;
 		goto out;
